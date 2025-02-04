@@ -7,6 +7,6 @@ export default function Todo(){
     return (
         <div className="header">
             <Form todos={todos} settodos={settodos}/>
-            <State todos={todos}/></div>
+            <State todos={todos} settodos={settodos}/></div>
     )
 }

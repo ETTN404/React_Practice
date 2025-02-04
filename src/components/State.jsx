@@ -1,5 +1,5 @@
 import TodoItem from "./TodoItem";
-export default function State({todos}){
+export default function State({todos,settodos}){
     var styles={
         backgroundColor:"white",
         borderRadius:"8px",
@@ -11,7 +11,7 @@ export default function State({todos}){
     }
     return <div style={styles}>
         
-        {todos.map((item,index)=>(<TodoItem key={index} item={item}/>))}
+        {todos.map((item,index)=>(<TodoItem settodos={settodos} todos={todos} key={index} item={item}/>))}
         
     </div>
 }
