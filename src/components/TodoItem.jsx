@@ -3,15 +3,17 @@ export default function TodoItem({item,todos,settodos}){
 function deleteitem(item){
     console.log("delete item",item)
     settodos(todos.filter(todo=>todo!==item))
-}
+}var sss=0;
 function done(item){
     settodos(
-        todos.map(todo=>(
-            todo.name===item.name?{...todo,read:!todo.read}:{...todo,read:todo.read}
-        ))
+        todos.map(todo=>todo.name===item.name?{...todo,read:!todo.read}:{...todo,read:todo.read})
     );
-    console.log(item)
 }
+
+
+
+
+
     return <div className={styles.item}>
         <div className={styles.itemname}>
             <span className={item.read ===true?styles.readf:""} onClick={()=>done(item)}>
