@@ -4,9 +4,23 @@ function deleteitem(item){
     console.log("delete item",item)
     settodos(todos.filter(todo=>todo!==item))
 }
-
+function done(item){
+    settodos(
+        todos.map(todo=>(
+            todo.name===item.name?{...todo,read:!todo.read}:{...todo,read:todo.read}
+        ))
+    );
+    console.log(item)
+}
     return <div className={styles.item}>
-        <div className={styles.itemname}>{item}<span><button onClick={()=>deleteitem(item)} className={styles.deletebutton}>x</button></span></div>
+        <div className={styles.itemname}>
+            <span className={item.read ===true?styles.readf:""} onClick={()=>done(item)}>
+                {item.name}
+            </span>
+            <button onClick={()=>deleteitem(item)} className={styles.deletebutton}>
+                x
+            </button>
+        </div>
         <hr className={styles.line}/>
         </div>
 }
